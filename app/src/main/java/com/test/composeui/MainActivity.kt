@@ -4,6 +4,7 @@ import android.R
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.*
@@ -14,8 +15,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.test.composeui.ui.theme.ComposeUITheme
+import com.test.composeui.ui.theme.Typography
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,11 +27,13 @@ class MainActivity : ComponentActivity() {
             ComposeUITheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
                     //ScaffoldSample()
-                    Greeting("Android")
+                    Column {
+                        CustomText("Abdur, Android Developer")
+                        Greeting("Android")
+                    }
                 }
             }
         }
@@ -38,10 +43,15 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String) {
     Text(text = "Hello $name!",
-         Modifier.size(12.dp),
          fontFamily = FontFamily.SansSerif,
          color = colorResource(R.color.black)
     )
+}
+
+@Composable
+fun CustomText(text: String){
+    Text(text = text,
+         style = Typography.h5)
 }
 
 @Preview(showBackground = true)
@@ -49,7 +59,11 @@ fun Greeting(name: String) {
 fun DefaultPreview() {
     ComposeUITheme {
         //ScaffoldSample()
-        Greeting("Android")
+        Column {
+            CustomText("Abdur, Android Developer")
+            Greeting("Android")
+        }
+
     }
 }
 
