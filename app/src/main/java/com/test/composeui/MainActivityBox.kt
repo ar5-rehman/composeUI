@@ -44,12 +44,12 @@ fun CustomBox(name: String) {
     Box(modifier = Modifier.fillMaxSize(),
     contentAlignment = Alignment.Center){
         Box(modifier = Modifier
-            .width(300.dp)
-            .height(300.dp)
+            .width(150.dp)
+            .height(150.dp)
             .background(colorResource(id = R.color.teal_700))
             .verticalScroll(rememberScrollState())){
             
-            Text(text = name, fontSize = 20.sp)
+            Text(text = name, fontSize = 80.sp)
         }
     }
 
